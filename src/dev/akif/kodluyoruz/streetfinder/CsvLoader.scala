@@ -1,9 +1,8 @@
 package dev.akif.kodluyoruz.streetfinder
-
-import java.io.File
+import scala.io.Source
 
 trait CsvLoader {
-  def loadCsv(file: File): List[String]
+  def loadCsv(string: String): List[String] =
+    for (elem <- Source.fromFile(string).getLines.toList) yield elem.split(',')(1)
 }
-
 

@@ -1,4 +1,5 @@
 package dev.akif.kodluyoruz.streetfinder
+package dev.akif.kodluyoruz.CsvLoader
 
 /**
  * See CSV file at: https://github.com/makiftutuncu/kodluyoruz-scala/blob/main/data/streets.csv
@@ -7,6 +8,8 @@ package dev.akif.kodluyoruz.streetfinder
  */
 object Application {
   def main(args: Array[String]): Unit = {
-
+    val input=Set("ahmet","atatürk").map(_.toUpperCase)
+    val streets = loadCsv("data/streets.csv")
+    findStreets(streets,input).foreach(println)
   }
 }
